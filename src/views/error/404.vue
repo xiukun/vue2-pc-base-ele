@@ -3,15 +3,8 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-12 09:33:14
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-12 09:33:25
+ * @LastEditTime: 2021-01-29 09:25:21
 -->
-<template>
+<template functional>
     <div>404.vue</div>
 </template>
-
-<script>
-export default {};
-</script>
-
-<style>
-</style>

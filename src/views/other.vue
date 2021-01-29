@@ -3,13 +3,13 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-08 10:35:48
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-28 14:03:49
+ * @LastEditTime: 2021-01-29 11:18:53
 -->
 <template>
-    <div class="app-container home">
+    <div class=" home">
         <p>abcdefg</p>
         <p>abcdefg</p>
-        <div class="app-table" :style="{'height': bgHeight}">
+        <div class="com-table" :style="{'height': bgHeight}">
             <div ref="tbBackground" class="tb-bg" :style="{'height': bgHeight}">
                 <template v-for="index of bgNumber">
                     <div :key="index" class="bg-watermark">
@@ -21,15 +21,15 @@
 
             </div>
             <div ref="tbLayout" style="width: 100%;position:absolute; top:0;opacity:0.91; ">
-                <el-table border stripe :data="tableData" tooltip-effect="dark" style="width: 100%;" @selection-change="handleSelectionChange">
-                    <el-table-column type="selection" :selectable="(row, index)=>{return !row.selectable}" width="55">
+                <el-table border stripe :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+                    <el-table-column type="selection" :selectable="(row, index)=>{ return !row.selectable}" width="55">
                     </el-table-column>
-                    <el-table-column label="日期" width="120">
+                    <el-table-column label="日期" width="120" sortable>
                         <template slot-scope="scope">{{ scope.row.date }}</template>
                     </el-table-column>
-                    <el-table-column prop="name" label="姓名" width="120">
+                    <el-table-column prop="name" label="姓名" width="120" sortable>
                     </el-table-column>
-                    <el-table-column prop="address" label="地址" show-overflow-tooltip>
+                    <el-table-column prop="address" label="地址" show-overflow-tooltip sortable>
                     </el-table-column>
                 </el-table>
 
@@ -37,19 +37,6 @@
 
         </div>
 
-        <section>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-            <p>abcdefg</p>
-        </section>
     </div>
 </template>
 <script>
@@ -72,7 +59,7 @@ export default {
                 },
                 {
                     date: '2016-05-04',
-                    name: '王小虎',
+                    name: '王小',
                     address: '上海市普陀区金沙江路 1518 弄',
                 },
                 {
@@ -173,7 +160,7 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-.app-table {
+.com-table {
     position: relative;
     .tb-bg {
         width: 100%;

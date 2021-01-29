@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-08 17:29:25
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-28 10:48:46
+ * @LastEditTime: 2021-01-29 11:23:37
 -->
 <template>
     <section class="app-main">
@@ -38,20 +38,19 @@ export default {
 }
 
 .fixed-header + .app-main {
-    // padding-top: 50px;
-    top: 50px;
+    padding-top: 50px;
 }
 
 .hasTagsView {
     .app-main {
         /* 84 = navbar + tags-view = 50 + 34 */
+        // min-height: 100vh;
         min-height: calc(100vh - 84px);
         position: relative;
     }
 
     .fixed-header + .app-main {
-        // padding-top: 84px;
-        top: 84px;
+        padding-top: 84px;
     }
 }
 </style>

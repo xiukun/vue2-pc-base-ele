@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-08 10:35:48
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-18 13:55:30
+ * @LastEditTime: 2021-01-28 17:19:37
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -88,12 +88,12 @@ const syncRoutes = [
 		},
 		children: [
 			{
-				path: '/other2',
-				component: () => import('@/views/other'),
-				name: '其他2',
+				path: '/packTable',
+				component: () => import('@/views/packTable'),
+				name: '封装表格',
 				hidden: false,
 				meta: {
-					title: '其他2',
+					title: '封装表格',
 					icon: 'dashboard',
 					noCache: false,
 				},
