@@ -3,13 +3,13 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-26 10:25:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-27 15:06:15
+ * @LastEditTime: 2021-02-01 13:08:58
 -->
 <template>
     <el-form ref="formRef" :model="form" :rules="rules" :status-icon="StatusIcon" :label-width="LabelWidth" :label-position="LabelPosition" :inline="inline" @submit.native.prevent>
         <slot name="header" />
-        <template v-for="key in attrs">
-            <el-form-item :key="key.prop" :label="key.label" :prop="key.prop" v-if="!key.hide">
+        <template v-for="(key,index) in attrs">
+            <el-form-item :key="key.prop" :label="key.label" :prop="key.prop" v-if="!key.hide" v-show="index<count">
                 <!-- input组件 -->
                 <el-input v-if="isShow(key,'input')" v-model="form[key.prop]" :type="key.type ? key.type : 'text'" autocomplete="off" :placeholder="key.placeholder?key.placeholder:'请输入'" :maxlength="key.maxLength" :minlength="key.minLength" :rows="key.rows" :step="key.step" :suffix-icon="key.suffixIcon" :prefix-icon="key.prefixIcon" :autofocus="key.autofocus?key.autofocus:false"
                     :class="{ 'show-word-limit-input': !!key.maxLength }" :disabled="key.disabled" show-word-limit clearable>
@@ -54,6 +54,11 @@
 export default {
     name: 'form-search',
     props: {
+        showCol: {
+            //默认展示3列数据
+            type: Number,
+            default: 3,
+        },
         form: {
             type: Object,
             default: () => {},
@@ -70,7 +75,7 @@ export default {
         //是否行内表单模式 默认true
         inline: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         //表单域标签的宽度 支持auto
         LabelWidth: {
@@ -87,12 +92,21 @@ export default {
             default: true,
         },
     },
+    computed: {
+        count() {
+            return this.expand ? this.attrs.length : this.showCol;
+        },
+    },
     data() {
         return {
             attrs: this.props,
+            expand: true, //默认展开
         };
     },
     methods: {
+        toggleBtn: function () {
+            this.expand = !this.expand;
+        },
         refresh: function (attrs) {
             this.attrs = attrs;
             console.log(this.attrs);

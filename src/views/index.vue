@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-08 10:35:48
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-27 14:21:06
+ * @LastEditTime: 2021-02-01 11:41:22
 -->
 <template>
     <div class="app-container home">
@@ -48,6 +48,7 @@
                 <el-button type="warning" icon="el-icon-refresh">重置</el-button>
                 <el-button type="info" icon="el-icon-plus">添加</el-button>
                 <el-button>文本说明</el-button>
+                <el-button icon="el-icon-sort" @click="()=>{this.$refs.formSearchRef.toggleBtn()}" circle></el-button>
             </el-form-item>
         </form-search>
     </div>
